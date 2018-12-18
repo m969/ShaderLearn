@@ -1,4 +1,4 @@
-﻿Shader "Custom/SpriteAnim" {
+﻿Shader "Custom/NormalTest" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -34,21 +34,13 @@
 		UNITY_INSTANCING_BUFFER_END(Props)
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
-			fixed2 spUV;
-			spUV = (IN.uv_MainTex.x, IN.uv_MainTex.y);
-			float a = (1.0 / 3.0);
-			float index = fmod(floor(_Time.y * 10), 3);
-			fixed4 c = tex2D (_MainTex, IN.uv_MainTex * a + float2(a, 0) * index) * _Color;
+			// Albedo comes from a texture tinted by color
+			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 			o.Albedo = c.rgb;
-			//fixed b = fmod(_Time.y, 1);
-			//fixed c = floor(fmod(_Time.y, 2));
-			//if (c == 0)
-			//{
-			//	b = 1 - b;
-			//}
-			//o.Albedo = fixed3(b, b, b);
+			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
+			o.Normal = UnpackNormal(c).rgb*float3(2, 2, 1);
 			o.Alpha = c.a;
 		}
 		ENDCG
