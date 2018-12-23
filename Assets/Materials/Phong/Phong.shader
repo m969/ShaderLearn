@@ -1,7 +1,8 @@
-﻿Shader "Custom/BlinnPhong" {
+﻿Shader "Custom/Phong" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
+		_SpecularColor ("Specular Color", Color) = (1,1,1,1)
 		_SpecPower ("Specular Power", Range(1.0, 20.0)) = 1.0
 	}
 	SubShader {
@@ -21,6 +22,7 @@
 			float2 uv_MainTex;
 		};
 
+		float4 _SpecularColor;
 		float4 _Color;
 		float _SpecPower;
 
@@ -39,11 +41,12 @@
 
 		inline fixed4 LightingPhong(SurfaceOutput s, fixed3 lightDir, half3 viewDir, fixed atten)
 		{
-			float3 halfVector = normalize(lightDir + viewDir);
-			float diff = max(0, dot(s.Normal, lightDir));
-			float spec = pow(max(0, dot(s.Normal, halfVector)), _SpecPower);
-			float4 c;
-			c.rgb = (s.Albedo * _LightColor0.rgb * diff) + (_LightColor0.rgb * spec);
+			float diff = dot(s.Normal, lightDir);
+			float3 reflectionVector = normalize(2.5 * s.Normal * diff - lightDir);
+			float spec = pow(max(0, dot(reflectionVector, viewDir)), _SpecPower);
+			float3 finalSpec = _SpecularColor.rgb * spec;
+			fixed4 c;
+			c.rgb = (s.Albedo * _LightColor0.rgb * diff * viewDir) + (_LightColor0.rgb * finalSpec);
 			c.a = 1.0;
 			return c;
 		}

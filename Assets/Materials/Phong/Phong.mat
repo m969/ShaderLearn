@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BlinnPhong
-  m_Shader: {fileID: 4800000, guid: 8f3dc4f233a252f4fa8207ba9aa65974, type: 3}
+  m_Name: Phong
+  m_Shader: {fileID: 4800000, guid: e88815546c7e1f6478ed2a70921c2940, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -25,7 +25,7 @@ Material:
     m_Floats:
     - _Glossiness: 0.22
     - _Metallic: 0.43
-    - _SpecPower: 20
+    - _SpecPower: 5.68
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.2352941, g: 0.2352941, b: 0.2352941, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
