@@ -2,7 +2,6 @@ Shader "MagicFire/MagicShield_Point"
 {
 	Properties
 	{
-		_Point0("Point0", Vector) = (0,0,0,0)
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
 
@@ -19,7 +18,6 @@ Shader "MagicFire/MagicShield_Point"
 			float3 worldPos;
 		};
 
-		float4 _Point0;
 		float4 _Array[20];
 
 		void surf( Input i , inout SurfaceOutputStandard o )
@@ -30,7 +28,8 @@ Shader "MagicFire/MagicShield_Point"
 			int count = 0;
 			for (count = 0; count < 10; count++)
 			{
-				dist = distance(ase_vertex3Pos, _Array[count].xyz);
+				float3 hitPos = mul(unity_WorldToObject, float4(_Array[count].xyz, 1));
+				dist = distance(ase_vertex3Pos, hitPos);
 				color = (((dist < _Array[count].w) ? (dist * 0.2) : color)).xxx;
 			}
 			o.Emission = color;
