@@ -50,13 +50,35 @@
 		uniform float _Smoothness;
 		uniform float4 _Array[20];
 
+		void surf(Input i , inout SurfaceOutputCustomLightingCustom o)
+		{
+			float dist = 0;
+			float4 color = float4(0.0, 0.0, 0.0, 1.0);
+			float4 color1 = float4(1.0, 1.0, 1.0, 1.0);
+			float3 ase_vertex3Pos = mul(unity_WorldToObject, float4(i.worldPos, 1));
+			int count = 0;
+			for (count = 0; count < 10; count++)
+			{
+				float3 hitPos = mul(unity_WorldToObject, float4(_Array[count].xyz, 1));
+				dist = distance(ase_vertex3Pos, hitPos);
+				color = (((dist < _Array[count].w) ? ((_Array[count].w - dist) * color1 * 10) : float4(0.0, 0.0, 0.0, 1.0))).xxxx + color;
+			}
+			o.SurfInput = i;
+			o.Emission = (_Emission * _Eimssion).rgb + color;
+		}
+
+		inline void LightingStandardCustomLighting_GI(inout SurfaceOutputCustomLightingCustom s, UnityGIInput data, inout UnityGI gi)
+		{
+			s.GIData = data;
+		}
+
 		inline half4 LightingStandardCustomLighting(inout SurfaceOutputCustomLightingCustom s, half3 viewDir, UnityGI gi)
 		{
 			UnityGIInput data = s.GIData;
 			Input i = s.SurfInput;
 			half4 c = 0;
 			float2 uv_Main = i.uv_texcoord * _Main_ST.xy + _Main_ST.zw;
-			float2 panner72 = (0.5 * _Time.y * float2(0.1,0.1) + uv_Main);
+			float2 panner72 = (0.5 * _Time.y * float2(0.1, 0.1) + uv_Main);
 			float4 tex2DNode69 = tex2D(_Main, panner72);
 			SurfaceOutputStandard s82 = (SurfaceOutputStandard)0;
 			float4 temp_output_75_0 = ((tex2DNode69 * _Emission) + _Light);
@@ -71,10 +93,10 @@
 			data.light = gi.light;
 
 			UnityGI gi82 = gi;
-			#ifdef UNITY_PASS_FORWARDBASE
-			Unity_GlossyEnvironmentData g82 = UnityGlossyEnvironmentSetup(s82.Smoothness, data.worldViewDir, s82.Normal, float3(0,0,0));
+#ifdef UNITY_PASS_FORWARDBASE
+			Unity_GlossyEnvironmentData g82 = UnityGlossyEnvironmentSetup(s82.Smoothness, data.worldViewDir, s82.Normal, float3(0, 0, 0));
 			gi82 = UnityGlobalIllumination(data, s82.Occlusion, s82.Normal, g82);
-			#endif
+#endif
 
 			float3 surfResult82 = LightingStandard(s82, viewDir, gi82).rgb;
 			surfResult82 += s82.Emission;
@@ -83,29 +105,6 @@
 			c.a = (tex2DNode69 * _Opacity).r;
 			return c;
 		}
-
-		inline void LightingStandardCustomLighting_GI(inout SurfaceOutputCustomLightingCustom s, UnityGIInput data, inout UnityGI gi)
-		{
-			s.GIData = data;
-		}
-
-		void surf(Input i , inout SurfaceOutputCustomLightingCustom o)
-		{
-			float dist = 0;
-			float3 color = float3(0, 0, 0);
-			float3 color1 = float3(0.5, 0.5, 0.5);
-			float3 ase_vertex3Pos = mul(unity_WorldToObject, float4(i.worldPos, 1));
-			int count = 0;
-			for (count = 0; count < 10; count++)
-			{
-				float3 hitPos = mul(unity_WorldToObject, float4(_Array[count].xyz, 1));
-				dist = distance(ase_vertex3Pos, hitPos);
-				color = (((dist < _Array[count].w) ? (dist * color1) : color)).xxx;
-			}
-			o.SurfInput = i;
-			o.Emission = (_Emission * _Eimssion).rgb + color;
-		}
-
 		ENDCG
 	}
 }

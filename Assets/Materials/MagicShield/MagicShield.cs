@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
+//[ExecuteInEditMode]
 public class MagicShield : MonoBehaviour {
     public Material shieldMaterial;
     public int pointsCount = 20;
