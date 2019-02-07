@@ -45,7 +45,7 @@ Material:
     - _Opacity: 1
     - _Shininess: 0.1
     - _Smoothness: 0.62
-    - __dirty: 1
+    - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0.7103448, b: 1, a: 1}

@@ -4,7 +4,6 @@ using UnityEngine;
 using DG.Tweening;
 
 
-//[ExecuteInEditMode]
 public class MagicShield : MonoBehaviour {
     public Material shieldMaterial;
     public int pointsCount = 20;
@@ -16,17 +15,14 @@ public class MagicShield : MonoBehaviour {
     public List<Vector4> vecArray = new List<Vector4>();
 
 
-    // Use this for initialization
     void Start () {
         for (int i = 0; i < pointsCount; i++)
         {
             hitPoints.Add(new HitPoint());
             vecArray.Add(Vector4.zero);
         }
-        //DOTween.defaultEaseType = ease;
     }
 
-    // Update is called once per frame
     void Update () {
         if (Input.GetMouseButtonDown(0))
         {
@@ -53,27 +49,13 @@ public class MagicShield : MonoBehaviour {
                 }
             }
         }
-        //var rmList = new List<HitPoint>();
         foreach (var item in hitPoints)
         {
             var p = item.position;
             item.position = new Vector4(p.x, p.y, p.z, item.range);
-            //shieldMaterial.SetVector("_Point" + hitPoints.IndexOf(item), item.position);
             vecArray[hitPoints.IndexOf(item)] = item.position;
-            //if (item.complete)
-            //    rmList.Add(item);
         }
-        //Debug.Log(vecArray.Count);
-        //Shader.SetGlobalVectorArray("MyGlobalArray", vecArray);
         shieldMaterial.SetVectorArray("_Array", vecArray);
-        //foreach (var item in rmList)
-        //{
-        //    hitPoints.Remove(item);
-        //}
-        //if (hitPoint != null)
-        //{
-        //    shieldMaterial.SetVector("_Point", hitPoint.position);// new Vector4(pointTrans.position.x, pointTrans.position.y, pointTrans.position.z, 0));
-        //}
     }
 }
 
