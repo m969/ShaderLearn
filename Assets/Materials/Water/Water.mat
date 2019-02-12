@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Water
+  m_Shader: {fileID: 4800000, guid: 07d91fd66c320824d93dd0cc5673b9ea, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 392839fbec35e4ec1b419a27d4055bc6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: f9b742b3aabf4744d8997ecc849ccbdb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Burn: 0.2243384
+    - _Cutoff: 0.5
+    - _DissolveAmount: 0.4844675
+    - _DistortionAmount: 0
+    - _Glosiness: 1
+    - _Glossiness: 0.79
+    - _HeatWave: 0
+    - _NormalBlendStrength: 0.5
+    - _NormalMap1Strength: 1
+    - _NormalMap2Strength: 1
+    - _ScrollSpeed: 0
+    - _UV1Tiling: 0.5
+    - _UV2Tiling: 0.5
+    - _UVScale: 10
+    - _WiggleAmount: 0.5698488
+    - __dirty: 0
+    m_Colors:
+    - _ColorDeep: {r: 0, g: 0.45588237, b: 0.2672413, a: 1}
+    - _ColorShallow: {r: 0, g: 0.7647059, b: 0.54320484, a: 1}
+    - _UV1Animator: {r: 0.5, g: 1, b: 0, a: 0}
+    - _UV2Animator: {r: 1, g: 0.5, b: 0, a: 0}

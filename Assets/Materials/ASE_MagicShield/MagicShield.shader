@@ -57,7 +57,7 @@
 			float4 color1 = float4(1.0, 1.0, 1.0, 1.0);
 			float3 ase_vertex3Pos = mul(unity_WorldToObject, float4(i.worldPos, 1));
 			int count = 0;
-			for (count = 0; count < 10; count++)
+			for (count = 0; count < 20; count++)
 			{
 				float3 hitPos = mul(unity_WorldToObject, float4(_Array[count].xyz, 1));
 				dist = distance(ase_vertex3Pos, hitPos);
