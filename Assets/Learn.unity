@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1102941, g: 0.1102941, b: 0.1102941, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientIntensity: 0.8
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -1222,7 +1222,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ccce8f06603c6684a836dc2974b99184, type: 2}
+  - {fileID: 2100000, guid: 2f485167f7d5ec245b7b5ab6ac8e828b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1519,6 +1519,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1435173124
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.502
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 13.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010319129062, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000010075245314, guid: 5fb901ed376616a4d800b32547cef664,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f72aa495de75d9042a8a4a13644d8080, type: 2}
+    - target: {fileID: 23000010075245314, guid: 5fb901ed376616a4d800b32547cef664,
+        type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f72aa495de75d9042a8a4a13644d8080, type: 2}
+    - target: {fileID: 23000010075245314, guid: 5fb901ed376616a4d800b32547cef664,
+        type: 2}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f72aa495de75d9042a8a4a13644d8080, type: 2}
+    - target: {fileID: 1000012017197192, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+      propertyPath: m_Name
+      value: Phong_frag
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5fb901ed376616a4d800b32547cef664, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1561087545
 Prefab:
   m_ObjectHideFlags: 0
@@ -1984,7 +2049,7 @@ GameObject:
   - component: {fileID: 1853400038}
   - component: {fileID: 1853400037}
   m_Layer: 0
-  m_Name: Test
+  m_Name: ViewDirTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

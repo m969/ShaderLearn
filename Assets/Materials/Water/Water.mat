@@ -54,7 +54,7 @@ Material:
     - _UV2Tiling: 0.5
     - _UVScale: 10
     - _WiggleAmount: 0.5698488
-    - __dirty: 0
+    - __dirty: 1
     m_Colors:
     - _ColorDeep: {r: 0, g: 0.45588237, b: 0.2672413, a: 1}
     - _ColorShallow: {r: 0, g: 0.7647059, b: 0.54320484, a: 1}

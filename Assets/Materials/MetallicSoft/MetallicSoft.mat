@@ -30,8 +30,8 @@ Material:
     - _Fresnel: 1
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _Roughness: 0.83
-    - _SpecPower: 2.5
+    - _Roughness: 0
+    - _SpecPower: 3.17
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 0.9637931, b: 0.8455882, a: 1}

@@ -33,7 +33,7 @@
 
 		inline float4 LightingCustomLight(SurfaceOutput s, fixed3 lightDir, half3 viewDir, fixed atten)
 		{
-			float diffLight = dot(s.Normal, lightDir);
+			float diffLight = max(0.2, dot(s.Normal, lightDir));
 			//diffLight = floor(diffLight*10) / 10;
 			float rim = dot(s.Normal, viewDir);
 			/*float hRim = max(0, rim * 0.8 + 0.2);*/
@@ -43,7 +43,7 @@
 			//	rim = 1;
 			rim = ceil(rim * 2) / 2;
 			float4 col;
-			col.rgb = viewDir;//s.Albedo * rim;
+			col.rgb = viewDir * diffLight;// * rim;
 			col.a = s.Alpha;
 			return col;
 		}
