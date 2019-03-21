@@ -25,7 +25,7 @@ Material:
     m_Floats:
     - _Glossiness: 0.22
     - _Metallic: 0.43
-    - _SpecPower: 5.24
+    - _SpecPower: 20
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
