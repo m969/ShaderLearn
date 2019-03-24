@@ -10,9 +10,9 @@
 	}
 	SubShader
 	{
-		//Tags { "Queue"="Transparent" "RenderType"="Transparent" }
-		Tags { "Queue"="Geometry" "RenderType"="Opaque" }
-		//Blend SrcAlpha OneMinusSrcAlpha
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" }
+		//Tags { "Queue"="Geometry" "RenderType"="Opaque" }
+		Blend SrcAlpha OneMinusSrcAlpha
 		LOD 100
 
 		Pass
@@ -72,13 +72,13 @@
 				//col = (col.r + 0.5) * _Color;
 				col = (col.r + 0.1)  * _Color;
 
-				fixed3 ambientColor = UNITY_LIGHTMODEL_AMBIENT.rgb * col.rgb * 0.2;
+				fixed3 ambientColor = col.rgb * 0.2;
 
 				half diff = max(0, dot(lightDir, normal));
 				fixed3 diffColor = col.rgb * diff;
 
 				fixed3 r = normalize(reflect(-lightDir, normal));
-				half spec =  pow(max(0, dot(viewDir, r)), _Smoothness * 40 + 1);
+				half spec =  pow(max(0, dot(viewDir, r)), _Smoothness * 100 + 1);
 				fixed3 specColor = spec * (_LightColor0.rgb);
 
 				col.rgb = ambientColor + diffColor + specColor + _Color.rgb * _Emission * 0.01 * p;
